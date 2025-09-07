@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillSwap Dashboard</title>
+  <link rel="stylesheet" href="../assets/dashboard.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <button id="hamburger">&#9776;</button>
+      <h1>SkillSwap</h1>
+    </div>
+
+    <div class="header-center">
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search for skills people or courses...">
+      </div>
+    </div>
+
+    <div class="header-right">
+      <a href="../about.html">About</a>
+      <button class="icon-btn"><i class="fas fa-bell"></i></button>
+      <button class="icon-btn"><i class="fas fa-user"></i></button>
+    </div>
+  </header>
+
+  <aside id="sidebar">
+    <nav>
+      <ul>
+        <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li><a href="#"><i class="fas fa-lightbulb"></i> My Skills</a></li>
+        <li><a href="#"><i class="fas fa-file-alt"></i> Requests</a></li>
+        <li><a href="#"><i class="fas fa-exchange-alt"></i> Swap Matches</a></li>
+        <li><a href="#"><i class="fas fa-coins"></i> Earning/Coins</a></li>
+        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+        <li><a href="../logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        
+        
+      </ul>
+    </nav>
+  </aside>
+
+  <div id="overlay"></div>
+
+  <main>
+    <section class="cards">
+      <div class="card card-blue">
+        <h2>Recent Requests</h2>
+        <p>No requests yet</p>
+      </div>
+      <div class="card card-green">
+        <h2>Swap Matches</h2>
+        <p>No matches found</p>
+      </div>
+      <div class="card card-orange">
+        <h2>Coins</h2>
+        <p>0 coins</p>
+      </div>
+      <div class="card card-purple">
+        <h2>Completed Lessons</h2>
+        <p>0 lessons</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 SkillSwap & Share | Contact: info@skillshare.com | Feedback | Terms & Conditions</p>
+  </footer>
+
+  <script>
+    // Sidebar toggle
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    function toggleSidebar() {
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    hamburger.addEventListener('click', toggleSidebar);
+    overlay.addEventListener('click', toggleSidebar);
+
+    // Sidebar active menu
+    const menuLinks = document.querySelectorAll('#sidebar nav ul li a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

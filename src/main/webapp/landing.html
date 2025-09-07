@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Swap & Share - Landing Page</title>
+  <link rel="stylesheet" href="./assets/landing.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="./assets/logo.jpeg">
+      <span>SkillSwap</span>
+    </div>
+    <div class="nav-right">
+      <nav>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="login.html" class="btn small">Sign In</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Learn. Teach. Grow.</h1>
+      <h2>Skill Swap & Share</h2>
+      <p id="typewriter"></p> <!-- typing effect here -->
+    </div>
+    <div class="buttons">
+        <a href="register.html" class="btn">Try Now</a>
+        <a href="contact.html" class="btn outline">Contact Us</a>
+      </div>
+  </section>
+
+  <script>
+    const text = "A community where knowledge flows both ways. Share your skills, discover new passions, and grow together.";
+    let i = 0;
+    const speed = 50;
+
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    window.onload = typeWriter;
+  </script>
+
+</body>
+</html>

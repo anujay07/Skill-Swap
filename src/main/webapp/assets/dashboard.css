@@ -1,0 +1,247 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Full height layout */
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f4f6; /* light gray background for body */
+  color: #1f2937; /* dark text */
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #111827; /* dark header */
+  color: #f9fafb; /* light text */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-left h1 {
+  color: #f9fafb;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-right a {
+  color: #f9fafb;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  transition:background 0.2s;
+}
+
+.header-right a:hover {
+  background-color: #374151; /* dark hover */
+}
+
+.icon-btn {
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: #374151;
+}
+
+/* Sidebar */
+aside {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #1f2937; /* dark sidebar */
+  color: #f9fafb;
+  padding-top: 3rem;
+  transition: left 0.3s ease;
+  z-index: 1100;
+}
+
+aside.active {
+  left: 0;
+}
+
+aside nav ul {
+  list-style: none;
+  padding: 0 1rem;
+}
+
+aside nav ul li {
+  margin: 1.5rem 0;
+}
+
+aside nav ul li a {
+  color: #f9fafb;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+aside nav ul li a:hover {
+  background-color: #374151;
+}
+
+aside nav ul li a.active {
+  background-color: #4b5563; /* slightly lighter dark */
+  font-weight: bold;
+}
+
+/* Overlay */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 0.3s, width 0s 0.3s;
+  z-index: 1000;
+}
+
+#overlay.active {
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+/* Main content */
+main {
+  flex: 1;
+  padding: 2rem;
+  transition: margin-left 0.3s ease;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column; /* vertical layout */
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #ffffff; /* light card */
+  color: #1f2937;
+  padding: 2rem;
+  border-radius: 50px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card h2 {
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #334155;
+}
+
+/* Card colors (dark/light contrast) */
+.card-blue { background-color: #2563eb; color: #f9fafb; }
+.card-green { background-color: #16a34a; color: #f9fafb; }
+.card-orange { background-color: #ea580c; color: #f9fafb; }
+.card-purple { background-color: #7c3aed; color: #f9fafb; }
+
+/* Footer */
+footer {
+  margin-top: auto;
+  padding: 1rem 2rem;
+  background-color: #e5e7eb; /* light footer */
+  color: #111827;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #d1d5db;
+}
+
+/* Search bar icon */
+.search-container {
+  position: relative;
+  width: 500px;
+  max-width: 90%;
+}
+.search-container search-icon{
+  position:relative;
+  width:10px;
+  height:20px;
+  margin-left: 10px;
+}
+/* .search-icon{
+  position:relative;
+  width:10px;
+  height:20px;
+  margin:auto;
+} */
+.search-container input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-center input {
+    width: 140px;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+}
