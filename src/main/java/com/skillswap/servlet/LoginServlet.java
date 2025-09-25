@@ -1,9 +1,11 @@
-package com.skillswap;
+package com.skillswap.servlet;
 
 import java.io.IOException;
 import java.sql.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+import com.skillswap.util.DBConnection;
 
 public class LoginServlet extends HttpServlet {
     @Override
@@ -23,17 +25,18 @@ public class LoginServlet extends HttpServlet {
             if (rs.next()) {
                 // ✅ Create session and store user
                 HttpSession session = request.getSession();
-                session.setAttribute("user", email);
+                session.setAttribute("user", email); // Use "user" consistently
 
                 // ✅ Redirect to dashboard
-                response.sendRedirect(request.getContextPath() + "/secure/dashboard.html");
+                response.sendRedirect(request.getContextPath() + "/dashboard.jsp");
             } else {
-                // Invalid login
-                response.sendRedirect("login.html?error=1");
+                // ❌ Invalid login
+                response.sendRedirect("login.jsp?error=1");
             }
+
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("login.html?error=2");
+            response.sendRedirect("login.jsp?error=2");
         }
     }
 }

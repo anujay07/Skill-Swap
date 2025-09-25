@@ -5,46 +5,68 @@
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-    <!-- Register Servlet -->
+    <!-- ================= Register Servlet ================= -->
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>com.skillswap.RegisterServlet</servlet-class>
+        <servlet-class>com.skillswap.servlet.RegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
-    <!-- Login Servlet -->
+    <!-- ================= Login Servlet ================= -->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.skillswap.LoginServlet</servlet-class>
+        <servlet-class>com.skillswap.servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
-    <!-- Logout Servlet -->
+    <!-- ================= PostServlet (handles posts, loads dashboard.jsp) ================= -->
+    <servlet>
+        <servlet-name>PostServlet</servlet-name>
+        <servlet-class>com.skillswap.servlet.PostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostServlet</servlet-name>
+        <url-pattern>/posts</url-pattern>
+    </servlet-mapping>
+
+    <!-- ================= Logout Servlet ================= -->
     <servlet>
         <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>com.skillswap.LogoutServlet</servlet-class>
+        <servlet-class>com.skillswap.servlet.LogoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
-    <!-- ✅ Auth Filter -->
-    <filter>
-        <filter-name>AuthFilter</filter-name>
-        <filter-class>com.skillswap.AuthFilter</filter-class>
-    </filter>
+    <!-- ================= Auth Filter ================= -->
+ <filter>
+    <filter-name>AuthFilter</filter-name>
+    <filter-class>com.skillswap.filter.AuthFilter</filter-class>
+</filter>
 
-    <!-- Protect dashboard.html only -->
-    <filter-mapping>
-        <filter-name>AuthFilter</filter-name>
-    <url-pattern>/secure/*</url-pattern>
-    </filter-mapping>
+<filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <!-- Protect all JSP files -->
+    <url-pattern>*.jsp</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <!-- Protect dashboard servlet if you have one -->
+    <url-pattern>/dashboard</url-pattern>
+</filter-mapping>
+
+
+    <!-- ================= Welcome File ================= -->
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
 
 </web-app>

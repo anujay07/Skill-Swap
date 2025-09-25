@@ -2,52 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skill Swap & Share - Landing Page</title>
-  <link rel="stylesheet" href="./assets/landing.css">
+  <title>SkillSwap - Learn and Teach</title>
+  <link rel="stylesheet" href="assets/landing.css">
 </head>
 <body>
-
   <header>
-    <div class="logo">
-      <img src="./assets/logo.jpeg">
-      <span>SkillSwap</span>
-    </div>
-    <div class="nav-right">
-      <nav>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <a href="login.html" class="btn small">Sign In</a>
-    </div>
+    <h1>Welcome to SkillSwap</h1>
+    <p>SkillSwap is a collaborative platform where learners and educators connect to exchange knowledge and grow together.</p>
+    <a href="register.jsp">
+        <button class="cta-button">Get Started</button>
+    </a>
   </header>
-
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Learn. Teach. Grow.</h1>
-      <h2>Skill Swap & Share</h2>
-      <p id="typewriter"></p> <!-- typing effect here -->
-    </div>
-    <div class="buttons">
-        <a href="register.html" class="btn">Try Now</a>
-        <a href="contact.html" class="btn outline">Contact Us</a>
+  
+  <section class="card-section">
+    <div class="card">
+      <img src="assets/image/teach.jpg" alt="Teach Skills">
+      <div class="card-content">
+        <h3>Teach Your Expertise</h3>
+        <p>Share your skills with others and become a mentor in your field of knowledge.</p>
       </div>
+    </div>
+    <div class="card">
+      <img src="assets/image/learn.jpg" alt="Learn Skills">
+      <div class="card-content">
+        <h3>Learn New Skills</h3>
+        <p>Explore a wide range of topics and learn from experienced educators and peers.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="assets/image/community.jpeg" alt="Community">
+      <div class="card-content">
+        <h3>Join the Community</h3>
+        <p>Connect with like-minded individuals and grow your network of learners and teachers.</p>
+      </div>
+    </div>
   </section>
-
-  <script>
-    const text = "A community where knowledge flows both ways. Share your skills, discover new passions, and grow together.";
-    let i = 0;
-    const speed = 50;
-
-    function typeWriter() {
-      if (i < text.length) {
-        document.getElementById("typewriter").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, speed);
-      }
-    }
-    window.onload = typeWriter;
-  </script>
-
 </body>
 </html>

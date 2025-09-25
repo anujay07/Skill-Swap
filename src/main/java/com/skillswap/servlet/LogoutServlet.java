@@ -1,4 +1,4 @@
-package com.skillswap;
+package com.skillswap.servlet;
 
 import java.io.IOException;
 import javax.servlet.*;
@@ -8,13 +8,12 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        HttpSession session = request.getSession(false); // don't create new
+
+        HttpSession session = request.getSession(false); // Don't create if it doesn't exist
         if (session != null) {
-            session.invalidate(); // clear session
+            session.invalidate(); // Destroy session
         }
 
-        // redirect to login page after logout
-        response.sendRedirect(request.getContextPath() + "/login.html");
+        response.sendRedirect(request.getContextPath() + "/login.jsp"); // Redirect to login
     }
 }

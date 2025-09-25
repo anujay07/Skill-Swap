@@ -1,4 +1,4 @@
-package com.skillswap;
+package com.skillswap.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
